@@ -11,7 +11,12 @@
 
   <body>
 
-    <%= render Core::Header::HeaderComponent.new %>
+    <% if account_signed_in? %>
+      <%= render Core::Header::HeaderComponent.new(signed_in: true) %>
+    <% else %>
+      <%= render Core::Header::HeaderComponent.new(signed_out: true) %>
+    <% end %>
+
 
     <%= yield %>
   </body>
