@@ -3,13 +3,23 @@
     <div class="col-12 pt-3 pb-3 mb-4 border-bottom">
     <div class="float-right">
       <% if @signed_in.present? %>
-        <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class: "btn btn-primary" %>
+        <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <%= link_to "Profile", profile_path, class: "dropdown-item" %>
+            <%= link_to "Settings", edit_account_registration_path, class: "dropdown-item" %>
+            <%= link_to "Sign Out", destroy_account_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+          
       <% elsif @signed_out.present? %>
         <%= link_to "Log In", new_account_session_path, class: "btn btn-outline-primary" %>
         <%= link_to "Sign Up", new_account_registration_path, class: "btn btn-primary" %>
       <% end %>
     </div>
-      <p><h3>Coding Website</h3></p>
+      <p><h3><%= link_to "Coding Website", root_path %></h3></p>
     </div>
   </div>
 </div>

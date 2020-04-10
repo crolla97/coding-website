@@ -17,7 +17,13 @@
       <%= render Core::Header::HeaderComponent.new(signed_out: true) %>
     <% end %>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
 
-    <%= yield %>
   </body>
 </html>
