@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   
   validates_presence_of :title, :body, :account_id, :community_id
 
+  has_rich_text :body
+
 end

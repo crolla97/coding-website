@@ -12,7 +12,7 @@
   <body>
 
     <% if account_signed_in? %>
-      <%= render Core::Header::HeaderComponent.new(signed_in: true) %>
+      <%= render Core::Header::HeaderComponent.new(signed_in: true, account_name: current_account.full_name ) %>
     <% else %>
       <%= render Core::Header::HeaderComponent.new(signed_out: true) %>
     <% end %>

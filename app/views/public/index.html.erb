@@ -24,7 +24,7 @@
     <div class="card p-3">
       <% @posts.each do |post| %>
         <h4><%= link_to post.title, community_post_path(post.community, post) %></h4>
-        <p><%= truncate post.body, length: 200 %></p>
+        <p><%= truncate(strip_tags(post.rich_text_body.to_s), length: 700) %></p>
       <% end %>
     </div>
   </div>
