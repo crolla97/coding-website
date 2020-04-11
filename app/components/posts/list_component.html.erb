@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+  <h4 class="mb-0"><%= link_to post.title, community_post_path(post.community, post) %></h4>
+  <small><p><%= link_to post.community.name, community_path(post.community) %> Posted by <%= link_to post.account.full_name, profile_path(post.account.username) %> <%= time_ago_in_words post.created_at %> ago.</p></small>
+  <p><%= post.body %></p>
+<% end %>

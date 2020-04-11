@@ -5,7 +5,9 @@ module Core
       def initialize(**options)
         @signed_in = options[:signed_in]
         @signed_out = options[:signed_out]
-        @account_name = options[:account_name]
+        @account = options[:account]
+        @account_name = @account.full_name
+        @username = @account.username
       end
     end
   end

@@ -12,18 +12,20 @@
   <body>
 
     <% if account_signed_in? %>
-      <%= render Core::Header::HeaderComponent.new(signed_in: true, account_name: current_account.full_name ) %>
+      <%= render Core::Header::HeaderComponent.new(signed_in: true, account: current_account ) %>
     <% else %>
       <%= render Core::Header::HeaderComponent.new(signed_out: true) %>
     <% end %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <%= yield %>
+    <section class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 pt-4">
+            <%= yield %>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
   </body>
 </html>
