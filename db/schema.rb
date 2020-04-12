@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_172730) do
+ActiveRecord::Schema.define(version: 2020_04_12_171941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2020_04_11_172730) do
   create_table "categories", force: :cascade do |t|
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "post_id"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_comments_on_account_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
   create_table "communities", force: :cascade do |t|
     t.bigint "account_id"
     t.string "name"
@@ -73,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_172730) do
     t.integer "total_members"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "summary"
     t.index ["account_id"], name: "index_communities_on_account_id"
   end
 
